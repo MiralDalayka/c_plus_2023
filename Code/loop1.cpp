@@ -3,14 +3,14 @@
 using namespace std;
 int main() {
 //Q1 -> Write a C++ Program to Generate Multiplication Table.
-  // int num;
-  // cout << "Enter a number:";
-  // cin >> num;
-  // for (int i = 1; i <= 12; i++) {
-  //   // 1*2=2 
+  int num;
+  cout << "Enter a number:";
+  cin >> num;
+  for (int i = 1; i <= 12; i++) {
+    // 1*2=2 
 
-  //   cout << i << "*" << num << "=" << i * num << endl;
-  // }
+    cout << i << "*" << num << "=" << i * num << endl;
+  }
 //-----------------------------------------------------
 
   //Q2 -> ​​Write a C++ Program to sum all numbers between 2 numbers given by the user.
@@ -27,23 +27,23 @@ output -> sum
 
 */
 
-  // int num1, num2, sum = 0, c;
-  // cout << "Enter 2 numbers:";
-  // cin >> num1 >> num2;
-  // if (num1 > num2) {
-  //   int t = num1;
-  //   num1 = num2;
-  //   num2 = t;
-  // }
-  // c = num1;
+  int num1, num2, sum = 0, c;
+  cout << "Enter 2 numbers:";
+  cin >> num1 >> num2;
+  if (num1 > num2) {
+    int t = num1;
+    num1 = num2;
+    num2 = t;
+  }
+  c = num1;
 
-  // while (c <= num2) {
-  //   sum += c;
-  //   c += 1;
-  // }
-  // // sum between num1 and num2 is = sum
-  // //  sum between 5 ,  7  is 18
-  // cout << "sum between " << num1 << ", " << num2 << " = " << sum;
+  while (c <= num2) {
+    sum += c;
+    c += 1;
+  }
+  // sum between num1 and num2 is = sum
+  //  sum between 5 ,  7  is 18
+  cout << "sum between " << num1 << ", " << num2 << " = " << sum;
 //----------------------------------------------------
   //Q3-> Write a C++  program to let the user guess a number from 0 -10.​ * if the answer is wrong get new input.​
   /*
@@ -59,18 +59,21 @@ input num
 */
 
   int num, flag = 1;
+//try it with DO WHILE
+  do {
+    if (flag == 0) {
+      cout << "Wrong , Try again:";
+    } else {
+      cout << "Enter number (0-10)";
+    }
+    cin >> num;
 
-  // do {
-  //   if (flag == 0) {
-  //     cout << "Wrong , Try again:";
-  //   } else {
-  //     cout << "Enter number (0-10)";
-  //   }
-  //   cin >> num;
+    flag = 0;
 
-  //   flag = 0;
+  } while (num != 6); 
 
-  // } while (num != 6); //
+//try it with WHILE
+  
 
  cout << "Enter number (0-10)";
    cin >> num;
