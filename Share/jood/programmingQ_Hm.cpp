@@ -40,7 +40,34 @@ int main() {
   }
 }
 //--------------------------------------------------------------------------------------------------------------------------------
-Q3:
+
+// Q3: Write a C++ program to print the sum of all odd numbers and even numbers between 2 input numbers.
+
+
+#include <iostream>
+
+using namespace std;
+int main() {
+  int n1, n2, sum_odd = 0, sum_even = 0;
+
+  cout << "enter two integers:" << endl;
+  cin >> n1 >> n2;
+  int max = n1, min = n2;
+  if (n2 > n1) {
+    max = n2;
+    min = n1;
+  }
+  for (int i = min; i <= max; i++) {
+    if (i % 2 == 0) {
+      sum_even += i;
+    } else if (i % 2 != 0) {
+      sum_odd += i;
+    }
+  }
+
+  cout << "The sum of odd = " << sum_odd << endl;
+  cout << "The sum of even = " << sum_even << endl;
+}
 
 
 
