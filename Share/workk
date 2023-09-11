@@ -1,0 +1,49 @@
+#include <iostream>
+using namespace std;
+// class human{
+// public:
+// string name , gendaer;
+// int age;
+// void printa(){
+//   cout<<"thes eat  "<<endl;
+//   cout<<"thes a talk "<<endl;
+//   cout<<"thes a waek "<<endl;
+//   cout<<" thes a drink "<<endl;
+// }
+// human(string n,string ge,int a){
+//   name=n;
+//   gendaer=ge;
+//   age=a;
+// }
+// };
+class employee{
+public:
+string username,password,qualifiction;
+double salary;
+void car(){
+  cout<<"login"<<endl;
+  cout<<"insert car "<<endl;
+  cout<<"update car"<<endl;
+  cout<<"delete car "<<endl;
+  cout<<"log out "<<endl;
+}
+employee(string u,string p,string qu)
+private:
+int contactnum;
+string fullname,adress,hiredate;
+
+};
+ int main() {
+   
+//   string n,g;
+//   int ag;
+//   cout<<"enter a name ="<<endl;
+//   cin>>n;
+//    cout<<"enter a gendaer f or m "<<endl;
+//   cin>>g;
+//    cout<<"enter age num "<<endl;
+//   cin>>ag;
+//   human ob1 = human(n,g,ag);
+//  ob1. printa();
+
+}
