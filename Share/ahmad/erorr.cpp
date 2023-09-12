@@ -1,12 +1,17 @@
 #include <iostream>
 using namespace std;
 float sala(float s){
- if(s>2000) 
+  //1 use =
+  // 2 use else
+ if(s>=2000)
    s*=0.15;
-  if(1300<s&&s<2000)
+  else
+  if(1300<=s&&s<2000) 
     s*=0.20;
-    if(700<s&&s<1300)
+  else
+    if(700<=s&&s<1300)
       s*=0.35;
+  else
   if(s<700)
     s*=0.40;
   return s;
