@@ -1,0 +1,124 @@
+#include <iostream>
+using namespace std;
+class products{
+int id ;
+string name,group;
+float price;
+public:
+products(int id,string name,string group,float price){
+  products::id=id;
+  products::name=name;
+  products::group=group;
+  products::price=price;
+}
+int getid(){ return id;}
+string getName() { return name; }
+string getgroup(){return group;}
+float getPrice() { return price; }
+};
+class customer{
+string id , name , address;
+int phone;
+public:
+customer(string id,string name,string address,int phone){
+  customer::id=id;
+  customer::name=name;
+  customer::address=address;
+  customer::phone=phone;
+}
+string getid(){return id;}
+string getname(){return name;}
+string getaddress(){return address;}
+int getphone(){return phone;}
+void buyproducts(products p){
+  cout<<"you bouthe " <<p.getid()<<p.getgroup()<<p.getName()<<p.getPrice();
+}
+void viewproductd(products r){
+  cout<<"you bouthe " <<r.getName()<<r.getPrice();
+}
+void makepayment(payment m){
+cout<<"you bouthe "<<m.getcaredtype()<<m.getcardno()<<m.getcustomerid()<<m.getname();
+}
+void addtocart(cart c){
+  cout<<"you bouthe " <<c.getid()<<c.getnumberofproducts()<<c.getproducts1()<<c.getproducts2()<<c.getproducts3()<<c.getproducts4()<<c.getproducts5()<<c.getprice()<<c.gettotal();
+}
+void deletfromcart(cart c){
+  
+}
+};
+class cart{
+int id ,numberofproducts;
+string products1, products2, products3, products4, products5;
+float price,total;
+public:
+cart(int id,int numberofproducts,string products1,string products2,string proudcts3,string pruduct4,string pruduct5,float price, float total){
+  cart ::id=id;
+  cart ::numberofproducts=numberofproducts;
+  cart ::products1=products1;
+  cart ::products2=products2;
+  cart::products3=proudcts3;
+  cart::products4=pruduct4;
+  cart::products5=pruduct5;
+  cart::price=price;
+  cart::total=total;
+}
+int getid(){return id;}
+int getnumberofproducts(){return numberofproducts;}
+string getproducts1(){return products1;}
+string getproducts2(){return products2;}
+string getproducts3(){return products3;}
+string getproducts4(){return products4;}
+string getproducts5(){return products5;}
+float getprice(){return price;}
+float gettotal(){return total;}
+};
+class admin{
+string name;
+int id;
+public:
+admin(string name,int id){
+  admin::name=name;
+  admin::id=id;
+}
+string getname(){return name;}
+int getid(){return id;}
+void viewproductd(products v){
+  cout<<"you bouthe "<<v.getgroup()<<v.getName()<<v.getid()<<v.getPrice();
+}
+void addproductd(products a){
+  cout<<"you bouthe "<<a.getgroup()<<a.getName()<<a.getid()<<a.getPrice();
+}
+void deleteproductd(products d){
+  cout<<"you bouthe "<<d.getgroup()<<d.getName()<<d.getid()<<d.getPrice();
+}
+void modifyproductd(products m){
+  cout<<"you bouthe "<<m.getgroup()<<m.getName()<<m.getid()<<m.getPrice();
+}
+void makeshipment(       ){
+  
+}
+void confirmdelivery(){
+  
+}
+};
+class guest{
+
+};
+class payment {
+string caredtype,cardno;
+string customerid,name;
+public:
+payment(string caredtype,string cardno,string customerid,string name){
+  payment::caredtype=caredtype;
+  payment::cardno=cardno;
+  payment::customerid=customerid;
+  payment::name=name;
+}
+string getcaredtype(){return caredtype;}
+string getcardno(){return cardno;}
+string getcustomerid(){return customerid;}
+string getname(){return name;}
+};
+int main() {
+  
+}
