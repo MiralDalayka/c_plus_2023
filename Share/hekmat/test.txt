@@ -1,1 +1,121 @@
-*********
+
+#include <iostream>
+using namespace std;
+#include <vector>
+#include <cstring>
+
+class Employee {
+private:
+  string name;
+  int age;
+  string position;
+  string average;
+
+public:
+  Employee(string n, int x, string p, string m) {
+    name = n;
+    age = x;
+    position = p;
+    average = m;
+  }
+  void displayinfo() {
+    cout << "name:" << name << endl;
+    cout << "age:" << age << endl;
+    cout << "position:" << position << endl;
+    cout << " average:" << average << endl;
+  }
+};
+class department {
+private:
+  string name;
+  vector<Employee> employees;
+
+public:
+  department(string n) { name = n; }
+
+  void addEmployee(Employee e) { employees.push_back(e); }
+  void displayinfo() {
+    cout << "Emploees in   " << name << "departmnet:-" << endl;
+    for (Employee emp : employees) {
+      emp.displayinfo();
+      cout << endl;
+    }
+  }
+};
+
+int main() {
+  int x, m;
+string p,n;
+  cout<<"Entar your name:-";
+  cin>> n;
+  cout<<"Entar your age:-";
+  cin >>x;
+  if (x >= 22) {
+    cout << "\n";
+  } else
+    cout << "unacceptable\n";
+  cout<<"Entar your position:-";
+   cin>> p;
+if (p=="Computer.Engineering" || p== "Cyber.security" || p=="Graphic.Design"){}
+  else 
+  cout<<"It is not one of the required specializations\n";
+
+  
+  cout<<"Entar your avrege:-";
+  cin>>m;
+  if (m >= 85) {
+    cout << "\n";
+  } else
+    cout << "unacceptable\n";
+ 
+  department Designers ("Designers  ");
+  department Programmingexperts ("Programming experts     ");
+  cout<<"---------------------------------------\n";
+  Employee e1(n, x,p, to_string(m));
+
+
+  
+  
+ 
+cout<<"---------------------------------------\n";
+ 
+
+int k  , y;
+string i,h;
+  cout<<"Entar your name:-";
+  cin >>h;
+  cout<<"Entar your age:-";
+  cin >> k;
+  if (k >= 22) {
+    cout << "\n";
+  } else
+    cout << "unacceptable\n";
+  cout<<"Entar your position:-";
+  cin >>i ;
+  if (i=="Computer.Engineering" || i== "Cyber.security" || i=="Graphic.Design"){}
+  else 
+  cout<<"It is not one of the required specializations\n";
+  cout<<"Entar your avrege:-";
+  cin>>y;
+  if (y >= 85) {
+    cout << "\n";
+  } else
+    cout << "unacceptable\n";
+
+
+  cout<<"---------------------------------------\n";
+  
+  Employee e2(h, k,i,  to_string(y));
+  cout<<"---------------------------------------\n";
+  
+  
+ 
+  Designers.addEmployee(e1);
+  Programmingexperts.addEmployee(e2);
+
+  Designers.displayinfo();
+  Programmingexperts.displayinfo();
+
+
+  return 0;
+}
