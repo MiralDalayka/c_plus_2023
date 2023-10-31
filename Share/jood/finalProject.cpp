@@ -2,14 +2,15 @@
 using namespace std;
 // #include <string>
 #include <vector>
-void viewOperations();
+void AdminFunction();
+void viewOperationsForAdmin();
 void Continue(){
 cout<<"\ndo you want to continue?(Y/N)"<<endl;
         char c;
         cin>>c;
         if (c == 'Y' || c == 'y'){
             cout<<endl;
-            viewOperations();
+            viewOperationsForAdmin();
         }
         else if(c == 'N' || c == 'n'){
             cout<<"\nGood bye!"<<endl;
@@ -20,6 +21,7 @@ cout<<"\ndo you want to continue?(Y/N)"<<endl;
             Continue();
         }
 }
+void logInAS();
 
 class testPaper{
    int id;
@@ -36,53 +38,13 @@ class testPaper{
    }
 };
 
-class Teachers
-{
-//attributes for teacher class 
-   int id,PhNo;
-   string name,address;
-  
-   
-//methods for teacher class
-    public:
-    Teachers (int id , string name , int PhNo , string address){
-        Teachers :: id = id;
-        Teachers :: name = name;
-        Teachers :: PhNo = PhNo;
-        Teachers :: address = address;
-    }
-
-     int getId(){return id;}
-
-     string getName(){return name;}
-
-     int getPhNo(){return PhNo;}
-
-     string getAddress(){return address;}
-
-     void setID(int setid){id = setid;}
-     void setName(string setName){name = setName;}
-     void setPhone(int setPhone){PhNo = setPhone;}
-     void setAddress(string setAddress){address = setAddress;}
-     
-     void PrepareTestPaper(){}
-
-    void MakeAttendance(){}
-
-    void CheckPapers(){}
-
-    void PrepareRecordCards(){}
-
-    void DeclareResult(){}
-};
-
 class Student {
     int id;
    string name;
    int PhNo;
    string address;
     public:
-    Student (int id , string name , int PhNo , string address){
+    Student (int id  =0 , string name ="", int PhNo=0 , string address=""){
         Student :: id = id;
         Student :: name = name;
         Student :: PhNo = PhNo;
@@ -104,6 +66,55 @@ class Student {
 
     void WriteExam(){}
 };
+
+
+class Teachers
+{
+//attributes for teacher class 
+   int id,PhNo;
+   string name,address;
+  
+   
+//methods for teacher class
+    public:
+    Teachers (int id=0 , string name="" , int PhNo=0 , string address=""){
+        Teachers :: id = id;
+        Teachers :: name = name;
+        Teachers :: PhNo = PhNo;
+        Teachers :: address = address;
+    }
+
+     int getId(){return id;}
+
+     string getName(){return name;}
+
+     int getPhNo(){return PhNo;}
+
+     string getAddress(){return address;}
+
+     void setID(int setid){id = setid;}
+     void setName(string setName){name = setName;}
+     void setPhone(int setPhone){PhNo = setPhone;}
+     void setAddress(string setAddress){address = setAddress;}
+     
+     void PrepareTestPaper(){
+      
+        vector <Teachers> Questions ;
+      //= {1,{"- Function overloading is used when different functions have the same implementation" , false}
+      //                                 2,{"- Friend functions of a class have access to its private members",true}
+     
+
+     }
+
+     void MakeAttendance(){}
+
+     void CheckPapers(){}
+
+     void PrepareRecordCards(){}
+
+     void DeclareResult(){}
+};
+
 
 class Subject{
     int id,classID;
@@ -182,9 +193,6 @@ class Admin{
         
     }
      
-    //  vector <Teachers> getTeacherList(){
-    //     return teachersList;
-    //  }
     
     
     void Login(){
@@ -469,7 +477,40 @@ class Admin{
         if(flag){cout<<"This ID not exist in Data"<<endl;}
     }
     
+   void FinalVersion(){
 
+    cout<<"\n\nThis is the final list for Teachers"<<endl;
+    cout<<"_________________________________________________________________________\n"<<endl;
+    for (int i=0; i<teachersList.size(); i++){
+            cout<<teachersList[i].getId()<<"-  "<<teachersList[i].getName()<<" | "<<teachersList[i].getPhNo()<<" | "<<teachersList[i].getAddress()<<endl;
+        }
+    cout<<"_________________________________________________________________________\n"<<endl;
+    cout<<"This is the final list for Students"<<endl;
+    cout<<"_________________________________________________________________________\n"<<endl;
+   
+    for (int i=0; i<studentsList.size(); i++){
+            cout<<studentsList[i].getIDStudent()<<"-  "<<studentsList[i].getNameStudent()<<" | "<<studentsList[i].getPhoneStudent()<<" | "<<studentsList[i].getAddressStudent()<<endl;
+        }
+    cout<<"_________________________________________________________________________\n"<<endl;
+    cout<<"This is the final list for Subjects"<<endl;
+    cout<<"_________________________________________________________________________\n"<<endl;
+    for (int i=0; i<subjectsList.size(); i++){
+        cout<<subjectsList[i].getID()<<"-  "<<subjectsList[i].getName()<<" | "<<subjectsList[i].getClassID()<<endl;
+        } 
+    cout<<"_________________________________________________________________________\n"<<endl;
+    cout<<"This is the final list for Classes"<<endl;
+    cout<<"_________________________________________________________________________\n"<<endl;   
+    for (int i=0; i<classesList.size(); i++){
+        cout<<classesList[i].getID()<<"-  "<<classesList[i].getName()<<" | "<<classesList[i].getDiv()<<endl;
+        }
+    cout<<"_________________________________________________________________________\n"<<endl;
+    cout<<"This is the final list for Divisions"<<endl;
+    cout<<"_________________________________________________________________________\n"<<endl;   
+     for (int i=0; i<divisionsList.size(); i++){
+        cout<<divisionsList[i].getID()<<"-  "<<divisionsList[i].getName()<<endl;
+        }
+
+    }
 };
 
 void welcome(){
@@ -478,7 +519,7 @@ void welcome(){
     cout<<"-------------------------------------------------------------------"<<endl;
 }
 
-void viewOperations(){
+void viewOperationsForAdmin(){
     cout<<"1- Login"<<endl;
     cout<<"2- Logout"<<endl;
     cout<<"3- Add new teacher"<<endl;
@@ -491,128 +532,205 @@ void viewOperations(){
     cout<<"10- Modify class"<<endl;
     cout<<"11- Add new division"<<endl;
     cout<<"12- Modify division"<<endl;
-    cout<<"13- Exist"<<endl;
+    cout<<"13- Print All Sections"<<endl;
+    cout<<"14- Exist"<<endl;
+    cout<<"15-Return to menu"<<endl;
 }
+
+void viewOperationsForTeacher(){
+    cout<<"1- Prepare Test Paper"<<endl;
+    cout<<"2- Make Attendance"<<endl;
+    cout<<"3- Check Papers"<<endl;
+    cout<<"4- Declare Result"<<endl;
+    cout<<"5- Return to menu"<<endl;
+    cout<<"6- Exist"<<endl;
+} 
+void logInASFun(){
+  cout<<"\n1- Admin"<<endl;
+  cout<<"2- Teacher"<<endl;
+  cout<<"3- Student"<<endl;
+  cout<<"4- Exit\n"<<endl;
+  cout<<"Please Enter  ID To login :"<<endl;
+
+  int LoginAS;
+  cin>>LoginAS;
+  switch (LoginAS)
+  {
+  case 1:{
+    AdminFunction();
+    break;
+  }
+
+  case 4: 
+  {exit (0);}
+  default:{
+  cout<<"This ID Not Found, Try Again:"<<endl;
+  logInASFun();
+    break;
+  }
+  }
+}
+
+void AdminFunction(){
+ cout<<"\n__________________________________Welcome To Admin Section_______________________________________________\n"<<endl;
+  Admin a = Admin();
+  viewOperationsForAdmin();
+      while(true){
+      int choice;
+      cout<<"\nEnter your choice:";   
+      cin>>choice;
+      switch(choice)
+      {
+      case 1: 
+        { cout<<"\n__________________________________Welcome___________________________________________________"<<endl;
+          a.Login();
+          break;}
+      case 2:
+        { a.Logout();
+          break;}
+      case 3:
+      {cout<<"\n_________________________________________Teachers Information____________________________________________"<<endl;
+          string n,ad;
+          int p,i;
+          cout<<"\nPlease enter the following information : \nID: ";
+          cin >>i;
+          cout<<"name: ";
+          cin>>n;
+          cout<<"phone number: ";
+          cin>>p;
+          cout<<"address: ";
+          cin>>ad;
+          a.AddNewTaechers(Teachers(i,n,p,ad));
+          break;
+  }
+      case 4: 
+      {cout<<"\nThis is the Teacher list"<<endl;
+      a.ModifyTeachers();
+      break;}
+
+      case 5:
+        { cout<<"\n_________________________________________Students Information____________________________________________"<<endl;
+              string nS,adS;
+              int pS,iS;
+              cout<<"\nPlease enter the following information : \nID: ";
+              cin >>iS;
+              cout<<"name: ";
+              cin>>nS;
+              cout<<"phone number: ";
+              cin>>pS;
+              cout<<"address: ";
+              cin>>adS;
+              
+              a.AddNewStudent(Student(iS,nS,pS,adS));
+              break;
+      }
+      case 6:
+      {
+          {cout<<"\nThis is the Student list"<<endl;
+          a.ModifyStudent();
+          break;}
+      }
+      case 7:
+        {  cout<<"\n_________________________________________Subjects Information____________________________________________"<<endl;
+          int iSub,idclass;
+          string nSub;
+          cout<<"\nPlease enter the following information : \nID: ";
+              cin >>iSub;
+              cout<<"name: ";
+              cin>>nSub;
+              cout<<"Class ID: ";
+              cin>>idclass;
+          a.AddNewSubject(Subject(iSub,nSub,idclass));
+          break;}
+      case 8:{
+          {cout<<"\nThis is the Subjects list"<<endl;
+          a.ModifySubject();
+          break;}
+      }
+      case 9:
+        {  cout<<"\n_________________________________________Classes Information____________________________________________"<<endl;
+          int iC,divC;
+          string nC;
+          cout<<"Please enter the following information : \nID: ";
+              cin >>iC;
+              cout<<"name: ";
+              cin>>nC;
+              cout<<"Division: ";
+              cin>>divC;
+          a.AddNewClass(Class(iC,nC,divC));
+          break;}
+      case 10:
+      {
+          cout<<"\nThis is the Classes list"<<endl;
+          a.ModifyClass();
+          break;
+      }
+      case 11:
+        { cout<<"\n_________________________________________Divisions Information____________________________________________"<<endl;
+          int iDiv;
+          string nDiv;
+          cout<<"\nPlease enter the following information : \nID: ";
+          cin>>iDiv;
+          cout<<"name: ";
+          cin>>nDiv;
+          a.AddNewDivision(Division(iDiv,nDiv));
+          break;}
+      case 12:
+      {
+          cout<<"\nThis is the Division list"<<endl;
+          a.ModifyDivision();
+          break;
+      }
+      case 13:{
+        a.FinalVersion();
+        break;
+      }
+      case 14:
+        { cout<<"\nGood bye, Thank you for your visit"<<endl;
+          exit(0);}
+      case 15:
+      {
+        logInASFun();
+      }
+}
+      }
+}
+
+void TeacherFunction(){
+  Teachers t = Teachers();
+  viewOperationsForTeacher();
+  while (true)
+  {
+     int choice;
+    cout<<"\nEnter your choice:";   
+    cin>>choice; 
+    switch (choice)
+    {
+    case 1:{
+      t.PrepareTestPaper();
+      break;
+    }
+    default:{
+      cout<<"This ID Not Found"<<endl;
+    }
+      break;
+    }
+  }
+  
+}
+
 
 int main(){
     welcome();
-    Admin a = Admin();
-    viewOperations();
-    while(true){
-    int choise;
-    cout<<"\nEnter your choise:";   
-    cin>>choise;
-    
-    switch(choise)
-    {
-    case 1: 
-       { cout<<"\n__________________________________Welcome___________________________________________________"<<endl;
-        a.Login();
-        break;}
-    case 2:
-       { a.Logout();
-        break;}
-    case 3:
-    {cout<<"\n_________________________________________Teachers Information____________________________________________"<<endl;
-        string n,ad;
-        int p,i;
-        cout<<"\nPlease enter the following information : \nID: ";
-        cin >>i;
-        cout<<"name: ";
-        cin>>n;
-        cout<<"phone number: ";
-        cin>>p;
-        cout<<"address: ";
-        cin>>ad;
-        a.AddNewTaechers(Teachers(i,n,p,ad));
-        break;
-}
-    case 4: 
-     {cout<<"\nThis is the Teacher list"<<endl;
-     a.ModifyTeachers();
-     break;}
+    logInASFun();
 
-    case 5:
-       { cout<<"\n_________________________________________Students Information____________________________________________"<<endl;
-            string nS,adS;
-            int pS,iS;
-            cout<<"\nPlease enter the following information : \nID: ";
-            cin >>iS;
-            cout<<"name: ";
-            cin>>nS;
-            cout<<"phone number: ";
-            cin>>pS;
-            cout<<"address: ";
-            cin>>adS;
-            
-            a.AddNewStudent(Student(iS,nS,pS,adS));
-            break;
-    }
-    case 6:
-    {
-        {cout<<"\nThis is the Student list"<<endl;
-        a.ModifyStudent();
-        break;}
-    }
-    case 7:
-      {  cout<<"\n_________________________________________Subjects Information____________________________________________"<<endl;
-        int iSub,idclass;
-        string nSub;
-        cout<<"\nPlease enter the following information : \nID: ";
-            cin >>iSub;
-            cout<<"name: ";
-            cin>>nSub;
-            cout<<"Class ID: ";
-            cin>>idclass;
-        a.AddNewSubject(Subject(iSub,nSub,idclass));
-        break;}
-    case 8:{
-         {cout<<"\nThis is the Subjects list"<<endl;
-        a.ModifySubject();
-        break;}
-    }
-    case 9:
-      {  cout<<"\n_________________________________________Classes Information____________________________________________"<<endl;
-        int iC,divC;
-        string nC;
-        cout<<"Please enter the following information : \nID: ";
-            cin >>iC;
-            cout<<"name: ";
-            cin>>nC;
-            cout<<"Division: ";
-            cin>>divC;
-        a.AddNewClass(Class(iC,nC,divC));
-        break;}
-    case 10:
-    {
-         {cout<<"\nThis is the Classes list"<<endl;
-        a.ModifyClass();
-        break;}
-    }
-    case 11:
-       { cout<<"\n_________________________________________Divisions Information____________________________________________"<<endl;
-        int iDiv;
-        string nDiv;
-        cout<<"\nPlease enter the following information : \nID: ";
-        cin>>iDiv;
-        cout<<"name: ";
-        cin>>nDiv;
-        a.AddNewDivision(Division(iDiv,nDiv));
-        break;}
-    case 12:
-    {
-         {cout<<"\nThis is the Division list"<<endl;
-        a.ModifyDivision();
-        break;}
-    }
-    case 13:
-       { cout<<"\nGood bye, Thank you for your visit"<<endl;
-        exit(0);}
-    default:
-        {cout<<"\nThis option not valid"<<endl;
-        break;}
-    }
-    }
+
+    
+    // Teachers t = Teachers();
+    // Student s = Student();
+    
+
+    
  
    
     return 0;
